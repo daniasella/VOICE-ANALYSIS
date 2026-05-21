@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Analisis Sentimen Suara</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Sistem Voice Recognition Analisis Sentimen</h2>
+
+    <div id="wave" class="blob-container">
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+    </div>
+
+    <button id="recordBtn" class="btn-record">🎙 Mulai Bicara</button>
+
+    <div id="result" class="result"></div>
+    <audio id="ttsPlayer" controls style="display:none"></audio>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/record.js') }}"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Panggil route /tts_opening saat halaman dimuat
+    fetch("/tts_opening")
+      .then(response => response.json())
+      .then(data => {
+        const audio = new Audio("/static/" + data.filename);
+        audio.play();
+      })
+      .catch(err => console.error("Gagal memutar TTS opening:", err));
+  });
+  </script>
+</body>
+</html>

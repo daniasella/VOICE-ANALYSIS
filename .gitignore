@@ -1,0 +1,26 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+*/venv/
+*/.venv/
+*/env/
+
+# Python Cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and Editor settings
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
